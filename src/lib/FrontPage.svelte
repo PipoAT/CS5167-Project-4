@@ -3,7 +3,7 @@
         <h1>GAMBLING ADDICTION.</h1>
         <h1>IT'S A REAL THING.</h1>
         {#if showContent && !showResources}
-        <div transition:fade={{ duration: 3000 }}>
+        <div transition:fade={{ duration: 2000 }}>
             <p>Gambling addiction, also known as compulsive gambling, is a type of impulse-control disorder. It can have devastating consequences for individuals and their families. People with a gambling addiction often feel an uncontrollable urge to gamble, even when it has negative effects on their lives.</p>
             <p>Signs of gambling addiction include:</p>
             <ul>
@@ -21,8 +21,8 @@
         </div>
         {/if}
         {#if showResources}
-        <div transition:fade={{ duration: 3000 }} class="map-container move-up">
-            <img src="https://maps.googleapis.com/maps/api/staticmap?center=-33.8569,151.2153&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:S%7C-33.8569,151.2153&key=AIzaSyD_ePMwjv6DT2ObpPTxsv7jil1XTUYfCuc">
+        <div transition:fade={{ duration: 2000 }} class="map-container move-up">
+            <img src={mapUrl} alt="Map showing current location">
         </div>
         {/if}
         {#if !showResources}
@@ -35,6 +35,24 @@
 </main>
 <script>
     import { fade } from 'svelte/transition';
+
+    import { onMount } from 'svelte';
+
+    let latitude;
+    let longitude;
+    let mapUrl;
+
+    onMount(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                latitude = position.coords.latitude;
+                longitude = position.coords.longitude;
+                mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:S%7C${latitude},${longitude}&key=AIzaSyD_ePMwjv6DT2ObpPTxsv7jil1XTUYfCuc`;
+            });
+        } else {
+            console.error("Geolocation is not supported by this browser.");
+        }
+    });
 
     let showContent = false;
     let showResources = false;
