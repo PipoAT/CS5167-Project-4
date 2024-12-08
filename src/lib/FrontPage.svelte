@@ -2,8 +2,9 @@
     <div class="maincontainer">
         <h1>GAMBLING ADDICTION.</h1>
         <h1>IT'S A REAL THING.</h1>
+        <br>
         {#if showContent && !showResources}
-        <div transition:fade={{ duration: 2000 }}>
+        <div class="content" transition:fade={{ duration: 1000 }}>
             <p>Gambling addiction, also known as compulsive gambling, is a type of impulse-control disorder. It can have devastating consequences for individuals and their families. People with a gambling addiction often feel an uncontrollable urge to gamble, even when it has negative effects on their lives.</p>
             <p>Signs of gambling addiction include:</p>
             <ul>
@@ -21,16 +22,16 @@
         </div>
         {/if}
         {#if showResources}
-        <div transition:fade={{ duration: 2000 }} class="map-container move-up">
+        <div transition:fade={{ duration: 1000 }} class="map-container move-up">
             <img src={mapUrl} alt="Map showing current location">
         </div>
         {/if}
         {#if !showResources}
-        <button on:click={handleClick} class:fade-out={showContent || showResources}>Learn More</button>
+        <button class="learnbutton" on:click={handleClick} class:fade-out={showContent || showResources}>Learn More</button>
         {/if}
         <br>
         <br>
-        <button on:click={handleClickResources} class:fade-out={showResources}>Find Resources</button>
+        <button class="findbutton" on:click={handleClickResources} class:fade-out={showResources}>Find Resources</button>
     </div>
 </main>
 <script>
@@ -47,7 +48,7 @@
             navigator.geolocation.getCurrentPosition(position => {
                 latitude = position.coords.latitude;
                 longitude = position.coords.longitude;
-                mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:S%7C${latitude},${longitude}&key=AIzaSyD_ePMwjv6DT2ObpPTxsv7jil1XTUYfCuc`;
+                mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=15&size=800x400&maptype=roadmap&markers=color:red%7Clabel:S%7C${latitude},${longitude}&key=AIzaSyD_ePMwjv6DT2ObpPTxsv7jil1XTUYfCuc`;
             });
         } else {
             console.error("Geolocation is not supported by this browser.");
@@ -77,10 +78,9 @@
     }
 
     .maincontainer {
-        background-color: white;
-        padding: 75px;
+        background-color: #ffffffc3;
+        padding: 70px;
         border-radius: 100px;
-        border-color: crimson;
     }
 
     .hidden {
