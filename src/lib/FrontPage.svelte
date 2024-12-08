@@ -4,8 +4,20 @@
         <h1>IT'S A REAL THING.</h1>
         {#if showContent && !showResources}
         <div transition:fade={{ duration: 5000 }}>
-            <!-- New content goes here -->
-            <p>New content displayed after buttons disappear.</p>
+            <p>Gambling addiction, also known as compulsive gambling, is a type of impulse-control disorder. It can have devastating consequences for individuals and their families. People with a gambling addiction often feel an uncontrollable urge to gamble, even when it has negative effects on their lives.</p>
+            <p>Signs of gambling addiction include:</p>
+            <ul>
+                <li>Preoccupation with gambling</li>
+                <li>Needing to gamble with increasing amounts of money to achieve the desired excitement</li>
+                <li>Repeated unsuccessful attempts to control, cut back, or stop gambling</li>
+                <li>Restlessness or irritability when trying to cut down or stop gambling</li>
+                <li>Gambling to escape problems or relieve feelings of helplessness, guilt, anxiety, or depression</li>
+                <li>Chasing losses (trying to get back lost money by gambling more)</li>
+                <li>Lying to family members or others to hide the extent of gambling</li>
+                <li>Jeopardizing or losing significant relationships, jobs, or educational/career opportunities because of gambling</li>
+                <li>Relying on others to provide money to relieve desperate financial situations caused by gambling</li>
+            </ul>
+            <p>If you or someone you know is struggling with gambling addiction, it's important to seek help. There are many resources available, including counseling, support groups, and treatment programs.</p>
         </div>
         {/if}
         {#if showResources}
@@ -38,6 +50,11 @@
 
 <style>
 
+    ul {
+        list-style: none;
+        color: black;
+    }
+    
     p {
         color: black;
     }
