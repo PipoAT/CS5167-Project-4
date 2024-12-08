@@ -3,7 +3,7 @@
         <h1>GAMBLING ADDICTION.</h1>
         <h1>IT'S A REAL THING.</h1>
         {#if showContent && !showResources}
-        <div transition:fade={{ duration: 5000 }}>
+        <div transition:fade={{ duration: 3000 }}>
             <p>Gambling addiction, also known as compulsive gambling, is a type of impulse-control disorder. It can have devastating consequences for individuals and their families. People with a gambling addiction often feel an uncontrollable urge to gamble, even when it has negative effects on their lives.</p>
             <p>Signs of gambling addiction include:</p>
             <ul>
@@ -21,7 +21,7 @@
         </div>
         {/if}
         {#if showResources}
-        <div transition:fade={{ duration: 5000 }} class="map-container">
+        <div transition:fade={{ duration: 3000 }} class="map-container move-up">
             <img src="https://maps.googleapis.com/maps/api/staticmap?center=-33.8569,151.2153&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:S%7C-33.8569,151.2153&key=AIzaSyD_ePMwjv6DT2ObpPTxsv7jil1XTUYfCuc">
         </div>
         {/if}
@@ -51,10 +51,9 @@
 <style>
 
     ul {
-        list-style: none;
         color: black;
     }
-    
+
     p {
         color: black;
     }
@@ -70,7 +69,7 @@
         display: none;
     }
     .fade-out {
-        animation: fadeOut 1.5s forwards;
+        animation: fadeOut 1s forwards;
     }
     @keyframes fadeOut {
         to {
